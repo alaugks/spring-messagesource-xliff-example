@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html th:lang="${#locale}" >
+<head>
+    <title>Full example io.github.alaugks:spring-translation-xliff</title>
+</head>
+<body>
+
+    <div style="padding: 1em;">
+
+        <div style="padding-bottom: 1em;">
+            <a href="/en/home">en</a><span style="padding: 0 1em;">|</span>
+            <a href="/de/home">de</a><span style="padding: 0 1em;">|</span>
+            <a href="/en-us/home">en-US</a>
+        </div>
+
+        <!--/* ################   Default domain: messages    ################ */-->
+
+        <!--/*
+            <h1 th:text="#{messages.headline}"/>
+        */-->
+        <h1 th:text="#{headline}"/>
+
+        <!--/*
+            <form>
+                <label th:text="#{messages.postcode}"/>
+                <input type="text" />
+            </form>
+        */-->
+        <form>
+            <label th:text="#{postcode}"/>
+            <input type="text" />
+        </form>
+
+
+        <!--/* ################     Domain: payment     ################ */-->
+
+        <h2 th:text="#{payment.headline}"/>
+        <p>
+            <strong th:text="#{payment.expiry_date}"/>: 2022/11
+        </p>
+
+    </div>
+
+</body>
+</html>
