@@ -59,8 +59,8 @@
         </dependency>
         <dependency>
             <groupId>io.github.alaugks</groupId>
-            <artifactId>spring-translation-xliff</artifactId>
-            <version>1.0.1</version>
+            <artifactId>spring-messagesource-xliff</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <!-- Test -->

@@ -1,8 +1,8 @@
 package com.demo.example.messagesource;
 
-import io.github.alaugks.spring.translation.xliff.XliffCacheableKeyGenerator;
-import io.github.alaugks.spring.translation.xliff.XliffTranslationMessageSource;
-import io.github.alaugks.spring.translation.xliff.catalog.CatalogCache;
+import io.github.alaugks.spring.messagesource.xliff.XliffCacheableKeyGenerator;
+import io.github.alaugks.spring.messagesource.xliff.XliffTranslationMessageSource;
+import io.github.alaugks.spring.messagesource.xliff.catalog.CatalogCache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.MessageSourceResolvable;

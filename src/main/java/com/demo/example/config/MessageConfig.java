@@ -1,6 +1,6 @@
 package com.demo.example.config;
 
-import io.github.alaugks.spring.translation.xliff.XliffTranslationMessageSource;
+import io.github.alaugks.spring.messagesource.xliff.XliffTranslationMessageSource;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

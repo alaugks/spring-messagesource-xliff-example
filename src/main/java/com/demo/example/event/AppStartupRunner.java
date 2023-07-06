@@ -1,6 +1,6 @@
 package com.demo.example.event;
 
-import io.github.alaugks.spring.translation.xliff.XliffTranslationMessageSource;
+import io.github.alaugks.spring.messagesource.xliff.XliffTranslationMessageSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

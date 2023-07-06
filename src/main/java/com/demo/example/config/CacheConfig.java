@@ -1,7 +1,7 @@
 package com.demo.example.config;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
-import io.github.alaugks.spring.translation.xliff.catalog.CatalogCache;
+import io.github.alaugks.spring.messagesource.xliff.catalog.CatalogCache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
