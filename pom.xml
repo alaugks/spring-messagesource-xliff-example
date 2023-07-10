@@ -6,7 +6,7 @@
     <groupId>com.example.demo</groupId>
     <artifactId>spring-translation-xliff-spring-boot-example</artifactId>
 
-    <version>0.0.7</version>
+    <version>1.0.0</version>
 
     <packaging>war</packaging>
 
