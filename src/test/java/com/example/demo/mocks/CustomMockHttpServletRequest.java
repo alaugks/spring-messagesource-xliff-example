@@ -1,4 +1,4 @@
-package com.demo.example.mocks;
+package com.example.demo.mocks;
 
 import org.springframework.mock.web.MockHttpServletRequest;
 

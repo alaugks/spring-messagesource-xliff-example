@@ -1,4 +1,4 @@
-package com.demo.example.resolver;
+package com.example.demo.resolver;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

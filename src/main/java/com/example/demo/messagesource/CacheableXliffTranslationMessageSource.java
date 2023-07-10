@@ -1,4 +1,4 @@
-package com.demo.example.messagesource;
+package com.example.demo.messagesource;
 
 import io.github.alaugks.spring.messagesource.xliff.XliffCacheableKeyGenerator;
 import io.github.alaugks.spring.messagesource.xliff.XliffTranslationMessageSource;

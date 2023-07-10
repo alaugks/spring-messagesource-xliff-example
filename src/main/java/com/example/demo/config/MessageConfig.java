@@ -1,4 +1,4 @@
-package com.demo.example.config;
+package com.example.demo.config;
 
 import io.github.alaugks.spring.messagesource.xliff.XliffTranslationMessageSource;
 import org.springframework.cache.CacheManager;

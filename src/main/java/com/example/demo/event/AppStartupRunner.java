@@ -1,4 +1,4 @@
-package com.demo.example.event;
+package com.example.demo.event;
 
 import io.github.alaugks.spring.messagesource.xliff.XliffTranslationMessageSource;
 import org.springframework.beans.factory.annotation.Autowired;

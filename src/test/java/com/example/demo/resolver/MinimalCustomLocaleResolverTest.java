@@ -1,6 +1,6 @@
-package com.demo.example.resolver;
+package com.example.demo.resolver;
 
-import com.demo.example.mocks.CustomMockHttpServletRequest;
+import com.example.demo.mocks.CustomMockHttpServletRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockHttpServletRequest;

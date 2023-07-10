@@ -1,7 +1,7 @@
-package com.demo.example.config;
+package com.example.demo.config;
 
-import com.demo.example.interceptor.UrlLocaleInterceptor;
-import com.demo.example.resolver.MinimalCustomLocaleResolver;
+import com.example.demo.interceptor.UrlLocaleInterceptor;
+import com.example.demo.resolver.MinimalCustomLocaleResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
