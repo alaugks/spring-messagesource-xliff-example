@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+  <nav th:fragment="menu">
+
+      <div class="menu-pages">
+          <ul>
+              <li><a th:href="@{home}">Home</a></li>
+              <li><a th:href="@{translations}">List of Translations</a></li>
+          </ul>
+      </div>
+
+      <div class="menu-lang">
+          <ul>
+              <li><a th:href="${languageMenuPath.get('en')}">en</a></li>
+              <li><a th:href="${languageMenuPath.get('de')}">de</a></li>
+              <li><a th:href="${languageMenuPath.get('en-us')}">en-US</a></li>
+          </ul>
+      </div>
+
+  </nav>
+
+</body>
+</html>

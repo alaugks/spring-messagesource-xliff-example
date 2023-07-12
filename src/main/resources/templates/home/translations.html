@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+        th:replace="~{layouts/base :: main-fragment(
+                                                ~{::title},
+                                                ~{:: #main-content}
+                                             )}">
+<head>
+    <title>List of Translations</title>
+</head>
+<body>
+    <main id="main-content">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="article : ${translations}">
+                    <td th:text="${article.key}"/>
+                    <td th:text="${article.value}"/>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+</body>
+</html>

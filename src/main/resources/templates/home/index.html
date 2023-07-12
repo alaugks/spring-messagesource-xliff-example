@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html th:lang="${#locale}" >
+<html xmlns:th="http://www.thymeleaf.org"
+        th:replace="~{layouts/base :: main-fragment(
+                                                ~{::title},
+                                                ~{:: #main-content}
+                                             )}">
 <head>
-    <title>Full example io.github.alaugks:spring-translation-xliff</title>
+    <title>Home</title>
 </head>
 <body>
-
-    <div style="padding: 1em;">
-
-        <div style="padding-bottom: 1em;">
-            <a href="/en/home">en</a><span style="padding: 0 1em;">|</span>
-            <a href="/de/home">de</a><span style="padding: 0 1em;">|</span>
-            <a href="/en-us/home">en-US</a>
-        </div>
-
+    <main id="main-content">
         <!--/* ################   Default domain: messages    ################ */-->
 
         <!--/*
@@ -38,8 +34,6 @@
         <p>
             <strong th:text="#{payment.expiry_date}"/>: 2022/11
         </p>
-
-    </div>
-
+    </main>
 </body>
 </html>

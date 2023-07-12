@@ -44,6 +44,8 @@ public class InterceptorsConfig implements WebMvcConfigurer {
                         defaultLocale.toString()
                 )
         );
-        registry.addInterceptor(this.urlInterceptor);
+        registry.addInterceptor(this.urlInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/static/**", "/error");
     }
 }

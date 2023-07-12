@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html th:lang="${#locale}" xmlns:th="http://www.thymeleaf.org"
+        th:fragment="main-fragment (title, mainContent)">
+<head>
+    <title th:replace="${title}">Title</title>
+    <link th:href="@{/static/main.css}" rel="stylesheet" />
+</head>
+<body>
+
+    <nav th:replace="~{/fragments/menu :: menu}">
+        Nav
+    </nav>
+
+    <main th:replace="${mainContent} ?: ~{}">
+        Content
+    </main>
+
+</body>
+</html>
