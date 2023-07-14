@@ -1,7 +1,6 @@
 package com.example.demo.event;
 
 import io.github.alaugks.spring.messagesource.xliff.XliffTranslationMessageSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.MessageSource;
@@ -10,8 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class AppStartupRunner implements ApplicationRunner {
 
-    @Autowired
-    MessageSource messageSource;
+    private final MessageSource messageSource;
+
+    public AppStartupRunner(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
 
     @Override
     public void run(ApplicationArguments args) {

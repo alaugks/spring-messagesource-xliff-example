@@ -1,13 +1,12 @@
 package com.example.demo.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 
 @Controller
@@ -26,15 +25,24 @@ public class HomeController {
     }
 
     @GetMapping(value = "/translations", name = "home_translations")
-    public String translations(Model model, HttpServletRequest request, Locale locale) {
-        HashMap<String, String> translations = new HashMap<>();
+    public String translations(Model model, Locale locale) {
+        LinkedHashMap<String, String> translations = new LinkedHashMap<>();
 
-        translations.put("postcode", this.messageSource.getMessage("postcode", null, locale));
-        translations.put("messages.postcode", this.messageSource.getMessage("messages.postcode", null, locale));
         translations.put("headline", this.messageSource.getMessage("headline", null, locale));
         translations.put("messages.headline", this.messageSource.getMessage("messages.headline", null, locale));
+        translations.put("postcode", this.messageSource.getMessage("postcode", null, locale));
+        translations.put("messages.postcode", this.messageSource.getMessage("messages.postcode", null, locale));
         translations.put("payment.headline", this.messageSource.getMessage("payment.headline", null, locale));
-        translations.put("payment.expiry_date", this.messageSource.getMessage("payment.expiry_date", null, locale));
+        translations.put("payment.expiry-date", this.messageSource.getMessage("payment.expiry-date", null, locale));
+
+        // With arguments
+        Object[] args = {"john.doe@example.com"};
+        translations.put("email-notice", this.messageSource.getMessage("email-notice", args, locale));
+        translations.put("messages.email-notice", this.messageSource.getMessage("email-notice", args, locale));
+
+        // Show default message if id not exists
+        String defaultMessage = this.messageSource.getMessage("default-message", null, locale);
+        translations.put("not-exists-id", this.messageSource.getMessage("not-exists-id", null, defaultMessage, locale));
 
         model.addAttribute("translations", translations);
         return "home/translations";

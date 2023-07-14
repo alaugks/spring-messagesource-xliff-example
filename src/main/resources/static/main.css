@@ -8,8 +8,9 @@ table {
     border-width: 1px;
     border-color: #000;
     border-style: solid;
-    color: #000000;
+    color: #000;
 }
+
 
 table td, table th {
     border-width: 1px;
@@ -28,12 +29,14 @@ ul {
 }
 
 li {
-    display: inline;
+    display: block;
     list-style-type: none;
-    padding: 0.25em;
+    padding-right: 0.25em;;
+    margin: 0;
+    float: left;
 }
 li:not(:first-child)::before {
-    content: ' | ';
+    content: '| ';
 }
 
 nav, main {
@@ -42,12 +45,18 @@ nav, main {
     padding: 1em;
 }
 
-div.menu-pages {
+div.menu-lang ul {
     float: left;
 }
 
-div.menu-lang {
-    float: right;
+div.menu-lang strong {
+    float: left;
+    padding-right: 1em;
+}
+
+div.menu-pages {
+    clear: both;
+    padding-top: 2em;
 }
 
 table {

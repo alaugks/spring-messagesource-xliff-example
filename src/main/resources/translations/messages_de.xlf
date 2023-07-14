@@ -12,6 +12,22 @@
                 <source>Postcode</source>
                 <target>Postleitzahl</target>
             </trans-unit>
+            <trans-unit id="headline-examples">
+                <source>Examples</source>
+                <target>Beispiele</target>
+            </trans-unit>
+            <trans-unit id="translation-args-label">
+                <source>Translation with param</source>
+                <target>Übersetzung mit Parameter</target>
+            </trans-unit>
+            <trans-unit id="email-notice">
+                <source>Your email {0} has been registered.</source>
+                <target>Ihre E-Mail {0} wurde registriert.</target>
+            </trans-unit>
+            <trans-unit id="default-message">
+                <source>This is a default message.</source>
+                <target>Das ist ein Standardtext.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -7,7 +7,7 @@
                 <source>Payment</source>
                 <target>Zahlung</target>
             </segment>
-            <segment id="expiry_date">
+            <segment id="expiry-date">
                 <source>Expiry date</source>
                 <target>Ablaufdatum</target>
             </segment>

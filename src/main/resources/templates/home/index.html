@@ -8,9 +8,10 @@
     <title>Home</title>
 </head>
 <body>
-    <main id="main-content">
-        <!--/* ################   Default domain: messages    ################ */-->
 
+    <main id="main-content">
+
+        <!--/* ################   Default domain: messages    ################ */-->
         <!--/*
             <h1 th:text="#{messages.headline}"/>
         */-->
@@ -27,13 +28,25 @@
             <input type="text" />
         </form>
 
-
         <!--/* ################     Domain: payment     ################ */-->
-
         <h2 th:text="#{payment.headline}"/>
         <p>
-            <strong th:text="#{payment.expiry_date}"/>: 2022/11
+            <strong th:text="#{payment.expiry-date}"/>: 2022/11
         </p>
+
+        <!--/* ################     Examples    ################ */-->
+        <h2 th:text="#{headline-examples}"/>
+
+        <!--/* ################     With arguments      ################ */-->
+        <p>
+            <strong th:text="#{translation-args-label}"/>: <span th:text="#{email-notice('john.doe@example.com')}"/>
+        </p>
+
+        <!--/* ################     Show default message if id not exists    ################ */-->
+        <p>
+            <span th:text="${#messages.msgOrNull('')} ?: #{default-message}"/>
+        </p>
+
     </main>
 </body>
 </html>
