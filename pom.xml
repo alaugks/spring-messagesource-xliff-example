@@ -8,7 +8,7 @@
 
     <version>1.0.0</version>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>XLIFF translation files support for Spring and Spring Boot</description>
@@ -17,6 +17,7 @@
     <properties>
         <java.version>11</java.version>
         <junit.version>5.9.2</junit.version>
+        <start-class>com.example.demo.DemoApplication</start-class>
     </properties>
 
     <parent>
@@ -80,6 +81,27 @@
             <version>${junit.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.example.demo.DemoApplication</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
     <profiles>
 
