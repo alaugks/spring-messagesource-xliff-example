@@ -6,7 +6,7 @@ Example implementation of the [io.github.alaugks:spring-messagesource-xliff@1.1.
 
 1. Install Project
 ```bash
-mvn clear install
+mvn clean install
 ```
 
 2. Build Docker Image
