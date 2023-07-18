@@ -26,11 +26,8 @@ jobs:
           mvn clean install
           mvn test
       - name: Evaluate Docker Tag
-        env:
-          GIT_REF_TYPE: ${{github.ref_type}}
-          GIT_TAG: ${{github.ref_name}}
         run: |
-          if [[ $GIT_REF_TYPE == 'tag' ]]; then
+          if [[ '${{github.ref_type}}' == 'tag' ]]; then
             echo "DOCKER_TAG=${{github.ref_name}}" >> $GITHUB_ENV
           else
             echo "DOCKER_TAG=latest" >> $GITHUB_ENV
