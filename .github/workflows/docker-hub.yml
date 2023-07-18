@@ -1,0 +1,41 @@
+name: Docker Hub Push Image
+run-name: Docker Hub Push Image [${{ github.ref_name }}]
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Docker Login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-package: 'jdk'
+          java-version: '17'
+          check-latest: true
+          cache: 'maven'
+      - name: Install & Run Tests
+        run: |
+          mvn clean install
+          mvn test
+      - name: Evaluate Docker Tag
+        env:
+          GIT_REF_TYPE: ${{github.ref_type}}
+          GIT_TAG: ${{github.ref_name}}
+        run: |
+          if [[ $GIT_REF_TYPE == 'tag' ]]; then
+            echo "DOCKER_TAG=${{github.ref_name}}" >> $GITHUB_ENV
+          else
+            echo "DOCKER_TAG=latest" >> $GITHUB_ENV
+          fi
+      - name: Docker Build and Push Image
+        run: |
+          docker build . --file Dockerfile --tag ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:$DOCKER_TAG
+          docker push ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:$DOCKER_TAG
