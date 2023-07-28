@@ -8,7 +8,7 @@
   <nav th:fragment="menu">
 
       <div class="menu-lang">
-          <strong>Languages</strong>
+          <strong th:text="#{languages}"/>
           <ul>
               <li><a th:href="${languageMenuPath.get('en')}">en</a></li>
               <li><a th:href="${languageMenuPath.get('de')}">de</a></li>

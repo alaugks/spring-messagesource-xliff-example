@@ -28,6 +28,10 @@
                 <source>This is a default message.</source>
                 <target>This is a default message.</target>
             </trans-unit>
+            <trans-unit id="languages">
+                <source>Languages</source>
+                <target>Languages</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
