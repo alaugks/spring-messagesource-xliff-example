@@ -1,5 +1,5 @@
-name: Docker Hub Push Image
-run-name: Docker Hub Push Image [${{ github.ref_name }}]
+name: Push Docker Image to Docker Hub
+run-name: Push Docker Image to Docker Hub [${{ github.ref_name }}]
 on:
   workflow_dispatch:
 jobs:
