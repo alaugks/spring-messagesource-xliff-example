@@ -1,0 +1,32 @@
+name: Restart Docker Image
+run-name: Restart Docker Image [${{github.event.inputs.tag}}]
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Define Docker Image Tag'
+        required: true
+jobs:
+  build:
+    name: Restart Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run commands
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{secrets.AWS_SSH_HOST}}
+          username: ${{secrets.AWS_SSH_USERNAME}}
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          port: 22
+          script: |
+            docker stop $(docker container ls  | grep 'alaugks/spring-boot-xliff-example' | awk '{print $1}')
+            docker run -it -d -p 8001:8080 ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:${{github.event.inputs.tag}}
+      - name: Wait for Docker Startup
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '20s'
+      - name: Check Website available
+        run: |
+          if ! curl --output /dev/null --silent --head --fail "${{vars.MONITORING_URI}"; then
+            exit 1
+          fi

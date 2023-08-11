@@ -31,6 +31,6 @@ jobs:
           time: '20s'
       - name: Check Website available
         run: |
-          if ! curl --output /dev/null --silent --head --fail "http://spring-boot-xliff-example.alaugks.de/en/home"; then
+          if ! curl --output /dev/null --silent --head --fail "${{vars.MONITORING_URI}"; then
             exit 1
           fi
