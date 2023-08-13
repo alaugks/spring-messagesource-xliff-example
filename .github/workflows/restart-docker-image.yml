@@ -19,7 +19,10 @@ jobs:
           key: ${{secrets.SSH_PRIVATE_KEY}}
           port: 22
           script: |
-            docker stop $(docker container ls  | grep 'alaugks/spring-boot-xliff-example' | awk '{print $1}')
+            container_id="$(docker container ls  | grep 'alaugks/spring-boot-xliff-example' | awk '{print $1}')"
+            if [ ! -z $container_id ]; then
+              docker stop $container_id > /dev/null
+            fi
             docker run -it -d -p 8001:8080 ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:${{github.event.inputs.tag}}
       - name: Wait for Docker Startup
         uses: jakejarvis/wait-action@master
