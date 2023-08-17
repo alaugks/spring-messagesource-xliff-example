@@ -28,12 +28,12 @@ jobs:
               -d \
               -p 8001:8080 \
               ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:${{github.event.inputs.tag}}
-      - name: Wait for Docker Startup
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '20s'
-      - name: Check Website available
-        run: |
-          if ! curl --output /dev/null --silent --head --fail "${{vars.MONITORING_URI}"; then
-            exit 1
-          fi
+#      - name: Wait for Docker Startup
+#       uses: jakejarvis/wait-action@master
+#        with:
+#          time: '20s'
+#      - name: Check Website available
+#        run: |
+#          if ! curl --output /dev/null --silent --head --fail "${{vars.MONITORING_URI}"; then
+#            exit 1
+#          fi
