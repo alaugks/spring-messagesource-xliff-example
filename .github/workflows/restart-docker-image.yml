@@ -23,7 +23,11 @@ jobs:
             if [ ! -z $container_id ]; then
               docker stop $container_id > /dev/null
             fi
-            docker run -it -d -p 8001:8080 ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:${{github.event.inputs.tag}}
+            docker run \
+              -it \
+              -d \
+              -p 8001:8080 \
+              ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:${{github.event.inputs.tag}}
       - name: Wait for Docker Startup
         uses: jakejarvis/wait-action@master
         with:
