@@ -7,10 +7,16 @@ jobs:
     name: Build Image and Push Image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Cache local Maven Repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: ${{runner.os}}-maven-${{hashFiles('**/pom.xml')}}
@@ -23,18 +29,21 @@ jobs:
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
       - name: Setup Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-package: 'jdk'
           java-version: '17'
           check-latest: true
           cache: 'maven'
+
       - name: Install & Run Tests
         run: |
           mvn clean install
           mvn test
+
       - name: Evaluate Docker Tag
         run: |
           if [[ '${{github.ref_type}}' == 'tag' ]]; then
@@ -42,7 +51,13 @@ jobs:
           else
             echo "DOCKER_TAG=latest" >> $GITHUB_ENV
           fi
-      - name: Docker Build and Push Image
-        run: |
-          docker build . --file Dockerfile --tag ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:$DOCKER_TAG
-          docker push ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:$DOCKER_TAG
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          context: .
+          platforms: linux/amd64,linux/arm64,windows/amd64
+          push: true
+          tags: ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:${{env.DOCKER_TAG}}

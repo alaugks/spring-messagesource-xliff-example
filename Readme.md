@@ -18,7 +18,7 @@ docker-compose -f "docker-compose.yml" up -d
 
 ## Docker Build
 
-Docker image to build yourself.
+Docker image to build yourself. `linux/amd64`, `linux/arm64` and `windows/amd64` is supported.
 
 1. Install Project
 ```bash
