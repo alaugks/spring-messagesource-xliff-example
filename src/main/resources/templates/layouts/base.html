@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    <meta name="description" content="#{seo.meta-description}">
     <title th:replace="${title}">Title</title>
     <link th:href="@{/static/main.css}" rel="stylesheet" />
 </head>
@@ -16,6 +17,12 @@
     <main th:replace="${mainContent} ?: ~{}">
         Content
     </main>
+
+    <footer>
+        <p>
+            SourceCode of this example on <a href="https://github.com/alaugks/spring-messagesource-xliff-example-spring-boot">GitHub</a>.
+        </p>
+    </footer>
 
 </body>
 </html>

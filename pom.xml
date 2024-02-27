@@ -3,27 +3,27 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example.demo</groupId>
-    <artifactId>spring-translation-xliff-spring-boot-example</artifactId>
+    <groupId>io.github.alaugks</groupId>
+    <artifactId>spring-messagesource-xliff-example</artifactId>
 
-    <version>1.1.1</version>
+    <version>1.1.2.01</version>
 
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>XLIFF translation files support for Spring and Spring Boot</description>
+    <description>Example XLIFF translation files support for Spring and Spring Boot</description>
     <url>https://github.com/alaugks/spring-xliff-translation-example</url>
 
     <properties>
         <java.version>11</java.version>
         <junit.version>5.9.2</junit.version>
-        <start-class>com.example.demo.DemoApplication</start-class>
+        <start-class>io.github.alaugks.XliffMessageSourceExampleApplication</start-class>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.1</version>
+        <version>3.2.3</version>
     </parent>
 
     <dependencies>
@@ -61,7 +61,7 @@
         <dependency>
             <groupId>io.github.alaugks</groupId>
             <artifactId>spring-messagesource-xliff</artifactId>
-            <version>1.1.1</version>
+            <version>1.1.2</version>
         </dependency>
 
         <!-- Test -->
@@ -89,7 +89,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.example.demo.DemoApplication</mainClass>
+                    <mainClass>io.github.alaugks.XliffMessageSourceExampleApplication</mainClass>
                     <layout>JAR</layout>
                 </configuration>
                 <executions>
