@@ -13,11 +13,12 @@ import java.util.Locale;
 public class MessageConfig implements WebMvcConfigurer {
     private final Locale defaultLocale = Locale.forLanguageTag("en");
 
-    @Bean("messageSource")
+    @Bean()
     public MessageSource messageSource(CacheManager cacheManager) {
-        XliffTranslationMessageSource messageSource =  new XliffTranslationMessageSource(cacheManager);
-        messageSource.setDefaultLocale(defaultLocale);
-        messageSource.setBasenamePattern("translations/*");
-        return messageSource;
+        return XliffTranslationMessageSource
+            .builder(cacheManager.getCache(CacheConfig.XLIFF_CACHE_NAME))
+            .defaultLocale(defaultLocale)
+            .basenamePattern("translations/*")
+            .build();
     }
 }
