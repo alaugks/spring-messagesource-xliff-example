@@ -15,10 +15,9 @@ public class MessageConfig implements WebMvcConfigurer {
 
     @Bean("messageSource")
     public MessageSource messageSource(CacheManager cacheManager) {
-        return XliffTranslationMessageSource
-                .builder(cacheManager)
-                .defaultLocale(defaultLocale)
-                .basenamePattern("translations/*")
-                .build();
+        XliffTranslationMessageSource messageSource = new XliffTranslationMessageSource(cacheManager);
+        messageSource.setDefaultLocale(defaultLocale);
+        messageSource.setBasenamePattern("translations/*");
+        return messageSource;
     }
 }

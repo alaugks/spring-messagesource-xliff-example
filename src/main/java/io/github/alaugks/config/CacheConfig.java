@@ -15,18 +15,9 @@ import java.util.List;
 @EnableCaching
 class CacheConfig {
 
-    /*
-    @Bean
-    public CacheManager cacheManager() {
-        ConcurrentMapCacheManager cacheManager = new ConcurrentMapCacheManager();
-        cacheManager.setCacheNames(List.of(CatalogCache.CACHE_NAME));
-        return cacheManager;
-    }
-    */
-
     @Bean
     public Caffeine<Object, Object> caffeineConfig() {
-        // https://stackoverflow.com/questions/59396684/how-to-create-caffeine-cache-that-has-no-max-value-and-does-not-expire
+        // https://stackoverflow.com/a/59898158/22096771
         return Caffeine.newBuilder();
     }
 
