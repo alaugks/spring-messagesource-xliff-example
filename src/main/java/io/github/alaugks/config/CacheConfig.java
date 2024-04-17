@@ -12,9 +12,10 @@ import java.util.List;
 
 @Configuration
 @EnableCaching
-class CacheConfig {
+public class CacheConfig {
 
-    public static final String XLIFF_CACHE_NAME = "my-xliff-cache-key-name";
+    public static final String XLIFF_CACHE_NAME = "xliff-cache-name";
+    public static final String CACHEABLE_XLIFF_CACHE_NAME = "cacheable-xliff-cache-name";
 
     @Bean
     public Caffeine<Object, Object> caffeineConfig() {
@@ -24,10 +25,12 @@ class CacheConfig {
 
     @Bean
     public CacheManager cacheManager(Caffeine<Object, Object> caffeine) {
-        Collection<String> cacheNames = List.of(XLIFF_CACHE_NAME);
         CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
         caffeineCacheManager.setCaffeine(caffeine);
-        caffeineCacheManager.setCacheNames(cacheNames);
+        caffeineCacheManager.setCacheNames(List.of(
+            XLIFF_CACHE_NAME,
+            CACHEABLE_XLIFF_CACHE_NAME
+        ));
         return caffeineCacheManager;
     }
 }

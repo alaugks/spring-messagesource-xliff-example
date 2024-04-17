@@ -6,7 +6,7 @@
 
 ## Docker Compose
 
-Load image from Docker Hub.
+Load image from Docker Hub. `linux/amd64`, `linux/arm64` and `windows/amd64` is supported.
 
 1. Start docker compose
 ```bash
@@ -18,7 +18,7 @@ docker-compose -f "docker-compose.yml" up -d
 
 ## Docker Build
 
-Docker image to build yourself. `linux/amd64`, `linux/arm64` and `windows/amd64` is supported.
+Docker image to build yourself.
 
 1. Install Project
 ```bash
