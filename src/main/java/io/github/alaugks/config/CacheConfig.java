@@ -1,7 +1,6 @@
 package io.github.alaugks.config;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
-import io.github.alaugks.spring.messagesource.xliff.catalog.CatalogCache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
@@ -13,7 +12,10 @@ import java.util.List;
 
 @Configuration
 @EnableCaching
-class CacheConfig {
+public class CacheConfig {
+
+    public static final String XLIFF_CACHE_NAME = "xliff-cache-name";
+    public static final String CACHEABLE_XLIFF_CACHE_NAME = "cacheable-xliff-cache-name";
 
     @Bean
     public Caffeine<Object, Object> caffeineConfig() {
@@ -23,7 +25,7 @@ class CacheConfig {
 
     @Bean
     public CacheManager cacheManager(Caffeine<Object, Object> caffeine) {
-        Collection<String> cacheNames = List.of(CatalogCache.CACHE_NAME);
+        Collection<String> cacheNames = List.of(XLIFF_CACHE_NAME, CACHEABLE_XLIFF_CACHE_NAME);
         CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
         caffeineCacheManager.setCaffeine(caffeine);
         caffeineCacheManager.setCacheNames(cacheNames);

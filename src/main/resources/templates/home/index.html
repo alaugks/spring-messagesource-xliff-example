@@ -44,7 +44,7 @@
 
         <!--/* ################     Show default message if id not exists    ################ */-->
         <p>
-            <span th:text="${#messages.msgOrNull('')} ?: #{default-message}"/>
+            <span th:text="${#messages.msgOrNull('not-exists')} ?: #{default-message}"/>
         </p>
 
     </main>
