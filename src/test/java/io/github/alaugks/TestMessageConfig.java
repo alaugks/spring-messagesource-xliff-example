@@ -1,21 +1,21 @@
-package io.github.alaugks.config;
+package io.github.alaugks;
 
 import io.github.alaugks.messagesource.CacheableXliffTranslationMessageSource;
 import io.github.alaugks.spring.messagesource.xliff.XliffTranslationMessageSource;
+import java.util.Locale;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-import java.util.Locale;
+@TestConfiguration
+public class TestMessageConfig {
 
-@Configuration
-public class MessageConfig {
     private final Locale defaultLocale = Locale.forLanguageTag("en");
 
-    @Bean
-    public MessageSource messageSource(CacheManager cacheManager) {
-        XliffTranslationMessageSource messageSource = new XliffTranslationMessageSource(cacheManager);
+    @Bean("testMessageSource")
+    public MessageSource messageSource(CacheManager testCacheManager) {
+        XliffTranslationMessageSource messageSource = new XliffTranslationMessageSource(testCacheManager);
         messageSource.setDefaultLocale(defaultLocale);
         messageSource.setBasenamePattern("translations/*");
         return new CacheableXliffTranslationMessageSource(messageSource);

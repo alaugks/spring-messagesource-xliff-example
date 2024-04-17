@@ -8,12 +8,13 @@ import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Collection;
 import java.util.List;
 
 @Configuration
 @EnableCaching
-class CacheConfig {
+public class CacheConfig {
+
+    public static final String CACHEABLE_XLIFF_CACHE_NAME = "cacheable-xliff-cache-name";
 
     @Bean
     public Caffeine<Object, Object> caffeineConfig() {
@@ -23,10 +24,12 @@ class CacheConfig {
 
     @Bean
     public CacheManager cacheManager(Caffeine<Object, Object> caffeine) {
-        Collection<String> cacheNames = List.of(CatalogCache.CACHE_NAME);
         CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
         caffeineCacheManager.setCaffeine(caffeine);
-        caffeineCacheManager.setCacheNames(cacheNames);
+        caffeineCacheManager.setCacheNames(List.of(
+            CatalogCache.CACHE_NAME,
+            CACHEABLE_XLIFF_CACHE_NAME)
+        );
         return caffeineCacheManager;
     }
 }
