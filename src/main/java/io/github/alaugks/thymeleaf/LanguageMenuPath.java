@@ -1,10 +1,9 @@
 package io.github.alaugks.thymeleaf;
 
 import jakarta.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
 
 @Service
 public class LanguageMenuPath {
@@ -29,9 +28,9 @@ public class LanguageMenuPath {
 
     private String joinUriWithoutLang(String locale, String... uri) {
         String joinedUri = String.join(
-                "/",
-                Arrays.copyOfRange(uri, 1, uri.length)
+            "/",
+            Arrays.copyOfRange(uri, 1, uri.length)
         );
-        return !joinedUri.isEmpty() ? "/" + locale +  "/" + joinedUri : "";
+        return !joinedUri.isEmpty() ? "/" + locale + "/" + joinedUri : "";
     }
 }

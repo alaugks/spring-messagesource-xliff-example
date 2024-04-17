@@ -2,15 +2,14 @@ package io.github.alaugks.interceptor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.support.RequestContextUtils;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 @Component
 public class UrlLocaleInterceptor implements HandlerInterceptor {
@@ -34,7 +33,8 @@ public class UrlLocaleInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+        throws IOException {
         String[] uri = request.getRequestURI().trim().replaceAll("^/", "").split("/");
         String uriFromLocale = (0 < uri.length) ? uri[0] : null;
 
@@ -48,16 +48,16 @@ public class UrlLocaleInterceptor implements HandlerInterceptor {
             Locale localeUri = Locale.forLanguageTag(uriFromLocale);
             Locale locale;
             boolean supportedLocaleExists = this.supportedLocales
-                    .stream()
-                    .anyMatch(l -> l.toString().equals(localeUri.toString()));
+                .stream()
+                .anyMatch(l -> l.toString().equals(localeUri.toString()));
             if (supportedLocaleExists) {
                 locale = localeUri;
             } else {
                 String path = this.joinUriWithoutLang(uri);
                 response.sendRedirect(!path.isEmpty() ? String.format(
-                        "/%s%s",
-                        this.defaultLocale.toString(),
-                        path
+                    "/%s%s",
+                    this.defaultLocale.toString(),
+                    path
                 ) : this.defaultHomePath);
                 return false;
             }
@@ -69,8 +69,8 @@ public class UrlLocaleInterceptor implements HandlerInterceptor {
 
     private String joinUriWithoutLang(String... uri) {
         String joinedUri = String.join(
-                "/",
-                Arrays.copyOfRange(uri, 1, uri.length)
+            "/",
+            Arrays.copyOfRange(uri, 1, uri.length)
         );
         return !joinedUri.isEmpty() ? "/" + joinedUri : "";
     }

@@ -1,14 +1,13 @@
 package io.github.alaugks.resolver;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import io.github.alaugks.mocks.CustomMockHttpServletRequest;
+import java.util.Locale;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
-
-import java.util.Locale;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MinimalCustomLocaleResolverTest {
 
@@ -27,7 +26,7 @@ class MinimalCustomLocaleResolverTest {
     }
 
     @Test
-    void test_resolveLocale_withoutLocaleOnNull () {
+    void test_resolveLocale_withoutLocaleOnNull() {
         this.mockRequest.addPreferredLocale(Locale.forLanguageTag(""));
         this.localResolver.setLocale(this.mockRequest, this.mockResponse, null);
         assertEquals("", this.localResolver.resolveLocale(this.mockRequest).toString());
@@ -35,7 +34,7 @@ class MinimalCustomLocaleResolverTest {
 
     @Test
     void test_resolveLocale_withEmptyRequestLocale() {
-        String userLanguage  = System.getProperty("user.language");
+        String userLanguage = System.getProperty("user.language");
         this.localResolver.setLocale(this.customMockRequest, this.mockResponse, null);
         assertEquals(userLanguage, this.localResolver.resolveLocale(this.mockRequest).toString());
     }

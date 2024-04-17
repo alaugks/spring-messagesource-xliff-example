@@ -1,12 +1,11 @@
 package io.github.alaugks.messagesource;
 
 import io.github.alaugks.config.CacheConfig;
+import java.util.Locale;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.NoSuchMessageException;
-
-import java.util.Locale;
 
 public class CacheableXliffTranslationMessageSource implements MessageSource {
 
