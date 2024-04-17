@@ -2,12 +2,12 @@ package io.github.alaugks.resolver;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.Locale;
 import org.springframework.context.i18n.SimpleLocaleContext;
 import org.springframework.web.servlet.i18n.AbstractLocaleResolver;
 
-import java.util.Locale;
-
 public class MinimalCustomLocaleResolver extends AbstractLocaleResolver {
+
     static final String LOCALE_ATTRIBUTE = MinimalCustomLocaleResolver.class.getName() + ".LOCALE";
     HttpServletRequest request;
 
@@ -27,8 +27,8 @@ public class MinimalCustomLocaleResolver extends AbstractLocaleResolver {
 
     @Override
     public void setLocale(HttpServletRequest request,
-                          HttpServletResponse response,
-                          Locale locale
+        HttpServletResponse response,
+        Locale locale
     ) {
         request.setAttribute(LOCALE_ATTRIBUTE, new SimpleLocaleContext(locale).getLocale());
         this.request = request;

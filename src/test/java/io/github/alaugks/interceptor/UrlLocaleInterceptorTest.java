@@ -1,7 +1,14 @@
 package io.github.alaugks.interceptor;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.i18n.SimpleLocaleContext;
@@ -9,14 +16,6 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.LocaleResolver;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class UrlLocaleInterceptorTest {
 
@@ -86,6 +85,7 @@ class UrlLocaleInterceptorTest {
     }
 
     public static class MockLocaleResolver implements LocaleResolver {
+
         static final String MOCK_LOCALE_ATTRIBUTE = "LOCALE";
         HttpServletRequest request;
         HttpServletResponse response;
@@ -97,8 +97,8 @@ class UrlLocaleInterceptorTest {
 
         @Override
         public void setLocale(HttpServletRequest request,
-                              HttpServletResponse response,
-                              Locale locale
+            HttpServletResponse response,
+            Locale locale
         ) {
             request.setAttribute(MOCK_LOCALE_ATTRIBUTE, new SimpleLocaleContext(locale).getLocale());
             this.request = request;
