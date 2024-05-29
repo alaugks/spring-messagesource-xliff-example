@@ -31,6 +31,11 @@ public class HomeController {
         translations.put("messages.headline", this.messageSource.getMessage("messages.headline", null, locale));
         translations.put("postcode", this.messageSource.getMessage("postcode", null, locale));
         translations.put("messages.postcode", this.messageSource.getMessage("messages.postcode", null, locale));
+        translations.put("files-found", this.messageSource.getMessage("files-found", new Object[]{10000L}, locale));
+        translations.put("messages.files-found",
+            this.messageSource.getMessage("messages.files-found", new Object[]{10000L}, locale));
+
+
         translations.put("payment.headline", this.messageSource.getMessage("payment.headline", null, locale));
         translations.put("payment.expiry-date", this.messageSource.getMessage("payment.expiry-date", null, locale));
 

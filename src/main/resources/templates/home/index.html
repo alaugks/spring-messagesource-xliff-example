@@ -37,15 +37,19 @@
         <!--/* ################     Examples    ################ */-->
         <h2 th:text="#{headline-examples}"/>
 
+
         <!--/* ################     With arguments      ################ */-->
-        <p>
-            <strong th:text="#{translation-args-label}"/>: <span th:text="#{email-notice('john.doe@example.com')}"/>
-        </p>
+        <h3 th:text="#{headline-translation-args}"/>
+        <p th:text="#{email-notice('john.doe@example.com')}"/>
 
         <!--/* ################     Show default message if id not exists    ################ */-->
-        <p>
-            <span th:text="${#messages.msgOrNull('not-exists')} ?: #{default-message}"/>
-        </p>
+        <h3 th:text="#{headline-translation-code-not-exists}"/>
+        <p th:text="${#messages.msgOrNull('not-exists')} ?: #{default-message}"/>
+
+        <!--/* ################     MessageFormat    ################ */-->
+        <h3 th:text="#{headline-translation-messageformat}"/>
+        <p th:text="#{files-found(23471)}"/>
+        <p th:text="#{files-found(1)}"/>
 
     </main>
 </body>
