@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk
+FROM openjdk:23-jdk
 WORKDIR /app
 COPY ./target/spring-messagesource-xliff-example.jar /app
 EXPOSE 8080
