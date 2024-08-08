@@ -42,18 +42,13 @@ class CacheableXliffTranslationMessageSourceTest {
     }
 
     private String getCacheableItem(SimpleKey simpleKey) {
-        //Cache cache = testCacheManager.getCache(CacheConfig.CACHEABLE_XLIFF_CACHE_NAME);
-        //return ofNullable(cache).map(c -> c.get(simpleKey, String.class));
-
         Cache cache = testCacheManager.getCache(CacheConfig.CACHEABLE_XLIFF_CACHE_NAME);
         Map<String, String> result = new HashMap<>();
         Map<Object, Object> items = new HashMap<>((ConcurrentHashMap<?, ?>) cache.getNativeCache());
-        items.forEach((code, value) -> {
-            result.putIfAbsent(
-                code.toString(),
-                value.toString()
-            );
-        });
+        items.forEach((code, value) -> result.putIfAbsent(
+            code.toString(),
+            value.toString()
+        ));
 
         return result.getOrDefault(simpleKey.toString(), null);
     }
