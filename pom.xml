@@ -30,6 +30,11 @@
                 <updatePolicy>always</updatePolicy>
             </snapshots>
         </repository>
+        <repository>
+            <id>maven_central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
     </repositories>
 
     <properties>
@@ -84,7 +89,7 @@
         <dependency>
             <groupId>io.github.alaugks</groupId>
             <artifactId>spring-requesturi-locale-interceptor</artifactId>
-            <version>0.1.0</version>
+            <version>0.3.0</version>
         </dependency>
 
         <!-- Test -->
