@@ -1,4 +1,4 @@
-# Example for Spring Boot: XLIFF translation support for Spring
+# Example for XLIFF translation support for Spring
 
 * alaugks/spring-messagesource-xliff ([GitHub](https://github.com/alaugks/spring-messagesource-xliff))
 * Docker Image: alaugks/spring-boot-xliff-example:
