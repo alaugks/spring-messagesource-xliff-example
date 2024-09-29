@@ -1,4 +1,7 @@
-package com.example.demo.controller;
+package io.github.alaugks.controller;
+
+import java.util.LinkedHashMap;
+import java.util.Locale;
 
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -6,15 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.LinkedHashMap;
-import java.util.Locale;
-
+@SuppressWarnings({"java:S1192"})
 @Controller
 @RequestMapping("/{lang}")
 public class HomeController {
 
     private final MessageSource messageSource;
-    
+
     public HomeController(MessageSource messageSource) {
         this.messageSource = messageSource;
     }
@@ -32,6 +33,11 @@ public class HomeController {
         translations.put("messages.headline", this.messageSource.getMessage("messages.headline", null, locale));
         translations.put("postcode", this.messageSource.getMessage("postcode", null, locale));
         translations.put("messages.postcode", this.messageSource.getMessage("messages.postcode", null, locale));
+		translations.put("files-found", this.messageSource.getMessage("files-found", new Object[] {10000L}, locale));
+		translations.put("messages.files-found",
+				this.messageSource.getMessage("messages.files-found", new Object[] {10000L}, locale));
+
+
         translations.put("payment.headline", this.messageSource.getMessage("payment.headline", null, locale));
         translations.put("payment.expiry-date", this.messageSource.getMessage("payment.expiry-date", null, locale));
 

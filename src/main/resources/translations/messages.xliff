@@ -16,9 +16,17 @@
                 <source>Examples</source>
                 <target>Examples</target>
             </trans-unit>
-            <trans-unit id="translation-args-label">
-                <source>Translation with param</source>
-                <target>Translation with param</target>
+            <trans-unit id="headline-translation-args">
+                <source>Translation with arguments</source>
+                <target>Translation with arguments</target>
+            </trans-unit>
+            <trans-unit id="headline-translation-code-not-exists">
+                <source>Translation not exists with default text</source>
+                <target>Translation not exists with default text</target>
+            </trans-unit>
+            <trans-unit id="headline-translation-messageformat">
+                <source>Translation with MessageFormat</source>
+                <target>Translation with MessageFormat</target>
             </trans-unit>
             <trans-unit id="email-notice">
                 <source>Your email {0} has been registered.</source>
@@ -31,6 +39,10 @@
             <trans-unit id="languages">
                 <source>Languages</source>
                 <target>Languages</target>
+            </trans-unit>
+            <trans-unit id="files-found">
+                <source><![CDATA[There {0,choice,0#are no files|1#is one file|1<are {0,number,integer} files}.]]></source>
+                <target><![CDATA[There {0,choice,0#are no files|1#is one file|1<are {0,number,integer} files}.]]></target>
             </trans-unit>
         </body>
     </file>

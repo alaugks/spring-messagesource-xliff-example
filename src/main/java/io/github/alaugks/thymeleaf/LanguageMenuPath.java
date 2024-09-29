@@ -1,10 +1,11 @@
-package com.example.demo.thymeleaf;
-
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+package io.github.alaugks.thymeleaf;
 
 import java.util.Arrays;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class LanguageMenuPath {
@@ -29,9 +30,9 @@ public class LanguageMenuPath {
 
     private String joinUriWithoutLang(String locale, String... uri) {
         String joinedUri = String.join(
-                "/",
-                Arrays.copyOfRange(uri, 1, uri.length)
+				"/",
+				Arrays.copyOfRange(uri, 1, uri.length)
         );
-        return joinedUri.length() > 0 ? "/" + locale +  "/" + joinedUri : "";
+		return !joinedUri.isEmpty() ? "/" + locale + "/" + joinedUri : "";
     }
 }

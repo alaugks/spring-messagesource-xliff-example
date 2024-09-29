@@ -1,8 +1,25 @@
 # Example for Spring Boot: XLIFF translation support for Spring Boot and Spring
 
-Example implementation of the [io.github.alaugks:spring-messagesource-xliff](https://github.com/alaugks/spring-xliff-translation) package.
+* [Package Repository](https://github.com/alaugks/spring-messagesource-xliff)
+* [Package on Maven Central](https://central.sonatype.com/artifact/io.github.alaugks/spring-messagesource-xliff)
+* [Example Website](https://spring-boot-xliff-example.alaugks.dev)
 
-## Run projekt
+## Docker Compose
+
+Load image from Docker Hub. `linux/amd64`, `linux/arm64` and `windows/amd64` is supported.
+
+1. Start docker compose
+
+```bash
+docker-compose -f "docker-compose.yml" up -d
+```
+
+2. Open
+   http://localhost:8080/
+
+## Docker Build
+
+Docker image to build yourself.
 
 1. Install Project
 ```bash

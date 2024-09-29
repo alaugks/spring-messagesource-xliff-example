@@ -1,5 +1,5 @@
-FROM openjdk:17-jdk
+FROM openjdk:23-jdk
 WORKDIR /app
-COPY ./target/spring-translation-xliff-spring-boot-example.jar /app
+COPY ./target/spring-messagesource-xliff-example.jar /app
 EXPOSE 8080
-CMD ["java", "-jar", "spring-translation-xliff-spring-boot-example.jar"]
+CMD ["java", "-jar", "spring-messagesource-xliff-example.jar"]

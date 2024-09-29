@@ -39,7 +39,7 @@ li:not(:first-child)::before {
     content: '| ';
 }
 
-nav, main {
+nav, main, footer {
     display: block;
     clear: both;
     padding: 1em;

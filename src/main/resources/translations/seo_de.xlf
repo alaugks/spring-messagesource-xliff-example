@@ -16,6 +16,10 @@
                 <source>List of Translations</source>
                 <target>Liste von Übersetzungen</target>
             </trans-unit>
+            <trans-unit id="meta-description">
+                <source>Example for Spring Boot: XLIFF translation support for Spring Boot and Spring</source>
+                <target>XLIFF-Übersetzungsunterstützung für Spring Boot und Spring verwenden.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
