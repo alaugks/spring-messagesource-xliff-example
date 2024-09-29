@@ -1,20 +1,12 @@
-name: Run Docker Image
-run-name: Run Docker Image [${{github.ref_name}}]
+name: Deploy and run Docker Image
+run-name: Deploy and run Docker Image [${{github.ref_name}}]
 on:
   workflow_dispatch:
 jobs:
   build:
-    name: Build Image and Push Image
+    name: Deploy and run Docker Image
     runs-on: ubuntu-latest
     steps:
-      - name: Evaluate Docker Tag
-        run: |
-          if [[ '${{github.ref_type}}' == 'tag' ]]; then
-            echo "DOCKER_TAG=${{github.ref_name}}" >> $GITHUB_ENV
-          else
-            echo "DOCKER_TAG=latest" >> $GITHUB_ENV
-          fi
-
       - name: Run Docker Image
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -27,11 +19,13 @@ jobs:
             if [ ! -z $container_id ]; then
               docker stop $container_id > /dev/null
             fi
-            docker run -it -d -p 8001:8080 ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:${{env.DOCKER_TAG}}
+            docker run -it -d -p 8001:8080 ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:${{github.ref_name}}
+
       - name: Wait for Docker Startup
         uses: jakejarvis/wait-action@master
         with:
           time: '20s'
+
       - name: Check Website available
         run: |
           if ! curl --output /dev/null --silent --head --fail "${{vars.MONITORING_URI}}"; then

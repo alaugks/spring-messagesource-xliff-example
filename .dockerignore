@@ -1,0 +1,19 @@
+###  Dirs ###
+.git
+.github
+.idea
+.mvn
+.run
+target
+var
+
+###  Files ###
+.gitignore
+docker-compose.yml
+Dockerfile
+mvnw
+mvnw.cmd
+README.md
+run.*
+*.log
+*.iml

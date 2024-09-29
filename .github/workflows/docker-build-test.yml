@@ -1,0 +1,26 @@
+name: "Docker Image Build Test"
+run-name: Docker Image Build Test [${{ github.ref_name }}]
+on:
+  push:
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+jobs:
+  tests:
+    name: Docker Build Test
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Build Docker Image"
+        run: |
+          docker compose up -d  
+
+      - name: "SmokeTest"
+        run: |
+          sleep 20
+          if ! curl --output /dev/null --silent --head --fail "http://127.0.0.1:8080/en/home"; then
+            echo "SmokeTest failed"
+            exit 1
+          fi
