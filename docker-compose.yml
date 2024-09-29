@@ -3,13 +3,13 @@ services:
     # image: alaugks/spring-boot-xliff-example:2.0.0.1
     container_name: spring-boot-xliff-example
     volumes:
-      - ./:/var/www/html
+      - ./:/var/www/app
     build:
       context: .
       dockerfile: Dockerfile
     command: bash -c "
       mvn package -Djar.forceCreation=true
-      && java -jar /var/www/html/target/application.jar
+      && java -jar /var/www/app/target/application.jar
       "
     ports:
       - "8080:8080"
