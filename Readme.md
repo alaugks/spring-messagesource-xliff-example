@@ -8,7 +8,7 @@
 ## Build and Run Docker Image
 
 ```bash
-docker-compose -f "docker-compose.yml" up -d
+docker compose up -d
 ```
 
 If you want to make changes for testing, you have to restart the Docker image.
