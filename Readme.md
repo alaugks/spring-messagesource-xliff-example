@@ -1,40 +1,25 @@
-# Example for Spring Boot: XLIFF translation support for Spring Boot and Spring
+# Example for Spring Boot: XLIFF translation support for Spring
 
-* [Package Repository](https://github.com/alaugks/spring-messagesource-xliff)
-* [Package on Maven Central](https://central.sonatype.com/artifact/io.github.alaugks/spring-messagesource-xliff)
+* alaugks/spring-messagesource-xliff ([GitHub](https://github.com/alaugks/spring-messagesource-xliff))
+* Docker Image: alaugks/spring-boot-xliff-example:
+  2.0.0.1 ([Docker Hub](https://hub.docker.com/repository/docker/alaugks/spring-boot-xliff-example/general))
 * [Example Website](https://spring-boot-xliff-example.alaugks.dev)
 
-## Docker Compose
-
-Load image from Docker Hub. `linux/amd64`, `linux/arm64` and `windows/amd64` is supported.
-
-1. Start docker compose
+## Build and Run Docker Image
 
 ```bash
 docker-compose -f "docker-compose.yml" up -d
 ```
 
-2. Open
-   http://localhost:8080/
+If you want to make changes for testing, you have to restart the Docker image.
 
-## Docker Build
+## Custom Changes
 
-Docker image to build yourself.
+If you want to make changes for testing, you have to restart the Docker image.
 
-1. Install Project
 ```bash
-mvn clean install
+docker compose restart
 ```
 
-2. Build Docker Image
-```bash
-docker build -t spring-boot-xliff-example . 
-```
-
-3. Run Docker Image
-```bash
-docker run -it -p 8080:8080 spring-boot-xliff-example
-```
-
-4. Open
-http://localhost:8080/
+> [!NOTE]  
+> When you restart, the JAR file is rebuilt and the Tomcat is started. This can take a few seconds.
