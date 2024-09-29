@@ -17,7 +17,6 @@
     <properties>
         <java.version>17</java.version>
         <junit.version>5.9.2</junit.version>
-        <start-class>io.github.alaugks.XliffMessageSourceExampleApplication</start-class>
     </properties>
 
     <parent>
@@ -212,7 +211,7 @@
     </profiles>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>application</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
