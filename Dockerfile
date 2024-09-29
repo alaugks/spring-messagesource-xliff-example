@@ -1,10 +1,10 @@
 FROM ubuntu:22.04
 
-RUN mkdir -p /var/www/html
+RUN mkdir -p /var/www/app
 
-WORKDIR /var/www/html
+WORKDIR /var/www/app
 
-COPY ./ /var/www/html
+COPY ./ /var/www/app
 
 ### Install packages
 RUN apt-get update \
@@ -25,5 +25,4 @@ RUN export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
 RUN mvn install
 
 EXPOSE 8080
-
-CMD ["java", "-jar", "/var/www/html/target/application.jar"]
+CMD ["java", "-jar", "spring-messagesource-xliff-example.jar"]
