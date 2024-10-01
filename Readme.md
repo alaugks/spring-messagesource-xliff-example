@@ -11,7 +11,7 @@
 docker compose up -d
 ```
 
-If you want to make changes for testing, you have to restart the Docker image.
+After a successful build, open the example in your web browser.: http://localhost:8080
 
 ## Custom Changes
 
