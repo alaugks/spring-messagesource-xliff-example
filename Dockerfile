@@ -25,4 +25,5 @@ RUN export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
 RUN mvn install
 
 EXPOSE 8080
-CMD ["java", "-jar", "spring-messagesource-xliff-example.jar"]
+
+CMD ["java", "-jar", "/var/www/app/target/application.jar"]
