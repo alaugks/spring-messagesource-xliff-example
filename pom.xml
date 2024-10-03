@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>Example XLIFF translation files support for Spring and Spring Boot</description>
+    <description>Example: Spring MessageSource for XLIFF files</description>
     <url>https://github.com/alaugks/spring-xliff-translation-example</url>
 
     <properties>
