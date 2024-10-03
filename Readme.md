@@ -2,7 +2,7 @@
 
 * alaugks/spring-messagesource-xliff ([GitHub](https://github.com/alaugks/spring-messagesource-xliff))
 * Docker Image: alaugks/spring-boot-xliff-example:
-  2.0.0.1 ([Docker Hub](https://hub.docker.com/repository/docker/alaugks/spring-boot-xliff-example/general))
+  2.0.0.2 ([Docker Hub](https://hub.docker.com/repository/docker/alaugks/spring-boot-xliff-example/general))
 * [Example Website](https://spring-boot-xliff-example.alaugks.dev)
 
 ## Build and Run Docker Image
