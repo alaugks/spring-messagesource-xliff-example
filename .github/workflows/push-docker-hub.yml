@@ -51,6 +51,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           context: .
-          platforms: linux/amd64,linux/arm64,windows/amd64
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}:${{github.ref_name}}
