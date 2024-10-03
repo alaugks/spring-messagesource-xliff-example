@@ -1,6 +1,5 @@
 services:
   app:
-    # image: alaugks/spring-boot-xliff-example:2.0.0.1
     container_name: spring-boot-xliff-example
     volumes:
       - ./:/var/www/app
