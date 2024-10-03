@@ -15,7 +15,7 @@ jobs:
           key: ${{secrets.SSH_PRIVATE_KEY}}
           port: 22
           script: |
-            container_id="$(docker container ls  | grep 'alaugks/spring-boot-xliff-example' | awk '{print $1}')"
+            container_id="$(docker container ls  | grep '${{vars.DOCKER_USERNAME}}/${{vars.DOCKER_REPOSITORY}}' | awk '{print $1}')"
             if [ ! -z $container_id ]; then
               docker stop $container_id > /dev/null
             fi
