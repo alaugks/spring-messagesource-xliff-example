@@ -1,26 +1,34 @@
-* {
+:root {
+    color-scheme: light dark;
+}
+
+body {
+    background-color: #fff;
     font-family: sans-serif;
+    color: #000;
+}
+
+a {
+    color: #4493F8;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #b6268d;
 }
 
 table {
-    background-color: #FFFFFF;
     border-collapse: collapse;
     border-width: 1px;
     border-color: #000;
     border-style: solid;
-    color: #000;
 }
-
 
 table td, table th {
     border-width: 1px;
     border-color: #000;
     border-style: solid;
     padding: 5px;
-}
-
-table thead {
-    background-color: #D1D1D1;
 }
 
 ul {
@@ -61,4 +69,42 @@ div.menu-pages {
 
 table {
     margin-top: 2em;
+}
+
+input {
+    color: #000;
+    background: none;
+    font-size: 1em;
+}
+
+.github {
+    padding: 0 0 2em 0;
+}
+
+.version {
+    padding: 0 0 2em 0;
+    color:#cacccf;
+    font-size: 0.8em;
+    text-align: right;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #2b2b2b;
+        color: #fff;
+    }
+
+    table {
+        border-color: #fff;
+    }
+
+    table td, table th {
+        border-color: #fff;
+        color: #fff;
+    }
+
+    input {
+        background-color: #ccc;
+        color: #000;
+    }
 }
