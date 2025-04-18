@@ -3,10 +3,6 @@
        srcLang="en" trgLang="en-US">
     <file id="payment_en-US">
         <unit>
-            <segment id="headline">
-                <source>Payment</source>
-                <target>Payment</target>
-            </segment>
             <segment id="expiry-date">
                 <source>Expiry date</source>
                 <target>Expiration date</target>

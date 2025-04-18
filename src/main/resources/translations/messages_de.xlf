@@ -12,38 +12,6 @@
                 <source>Postcode</source>
                 <target>Postleitzahl</target>
             </trans-unit>
-            <trans-unit id="headline-examples">
-                <source>Examples</source>
-                <target>Beispiele</target>
-            </trans-unit>
-            <trans-unit id="headline-translation-args">
-                <source>Translation with arguments</source>
-                <target>Übersetzung mit Argumenten</target>
-            </trans-unit>
-            <trans-unit id="headline-translation-code-not-exists">
-                <source>Translation not exists with default text</source>
-                <target>Übersetzung existiert nicht mit Standardtext</target>
-            </trans-unit>
-            <trans-unit id="headline-translation-messageformat">
-                <source>Translation with MessageFormat</source>
-                <target>Translation mit MessageFormat</target>
-            </trans-unit>
-            <trans-unit id="email-notice">
-                <source>Your email {0} has been registered.</source>
-                <target>Ihre E-Mail {0} wurde registriert.</target>
-            </trans-unit>
-            <trans-unit id="default-message">
-                <source>This is a default message.</source>
-                <target>Das ist ein Standardtext.</target>
-            </trans-unit>
-            <trans-unit id="languages">
-                <source>Languages</source>
-                <target>Sprachen</target>
-            </trans-unit>
-            <trans-unit id="files-found">
-                <source><![CDATA[There {0,choice,0#are no files|1#is one file|1<are {0,number,integer} files}.]]></source>
-                <target><![CDATA[Es gibt {0,choice,0#keine Datei|1#eine Datei|1<{0,number,integer} Dateien}.]]></target>
-            </trans-unit>
         </body>
     </file>
 </xliff>

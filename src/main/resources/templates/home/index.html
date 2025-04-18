@@ -1,56 +1,144 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-        th:replace="~{layouts/base :: main-fragment(
-                                                ~{::title},
-                                                ~{:: #main-content}
-                                             )}">
+<html th:lang="${#locale}" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="#{seo.title-suffix-home} + ' - ' + #{seo.title}">Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <title>[[#{seo.title}]]</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 1em;
+            font-size: 1.2em;
+        }
+
+        nav {
+            padding-bottom: 3em;
+        }
+
+        main {
+            clear: both;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            float: left;
+            padding-right: 1em;
+        }
+
+        table {
+            border: 1px solid #dededf;
+            table-layout: fixed;
+            border-collapse: collapse;
+            border-spacing: 1px;
+            text-align: left;
+        }
+
+        table th {
+            border: 1px solid #dededf;
+            background-color: #eceff1;
+            color: #000000;
+            padding: 10px 20px;
+            text-align: left;
+        }
+
+        table td {
+            border: 1px solid #dededf;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+    </style>
+
 </head>
 <body>
 
-    <main id="main-content">
+<nav>
+    <ul>
+        <li><a th:href="${languageMenuPath.get('en')}">en</a></li>
+        <li><a th:href="${languageMenuPath.get('de')}">de</a></li>
+        <li><a th:href="${languageMenuPath.get('en-us')}">en-US</a></li>
+    </ul>
+</nav>
 
-        <!--/* ################   Default domain: messages    ################ */-->
-        <!--/*
-            <h1 th:text="#{messages.headline}"/>
-        */-->
-        <h1 th:text="#{headline}"/>
+<main>
+    <p>Message Expressions</p>
 
-        <!--/*
-            <form>
-                <label th:text="#{messages.postcode}"/>
-                <input type="text" />
-            </form>
-        */-->
-        <form>
-            <label th:text="#{postcode}"/>
-            <input type="text" />
-        </form>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                code
+            </th>
+            <th>
+                value
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>headline</td>
+                <td>[[#{headline}]]</td>
+            </tr>
+            <tr>
+                <td>messages.headline</td>
+                <td>[[#{messages.headline}]]</td>
+            </tr>
+            <tr>
+                <td>postcode</td>
+                <td>[[#{postcode}]]</td>
+            </tr>
+            <tr>
+                <td>messages.postcode</td>
+                <td>[[#{messages.postcode}]]</td>
+            </tr>
+        </tbody>
+    </table>
 
-        <!--/* ################     Domain: payment     ################ */-->
-        <h2 th:text="#{payment.headline}"/>
-        <p>
-            <strong th:text="#{payment.expiry-date}"/>: 2022/11
-        </p>
+    <p>Variable Expression</p>
 
-        <!--/* ################     Examples    ################ */-->
-        <h2 th:text="#{headline-examples}"/>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                code
+            </th>
+            <th>
+                value
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>headline</td>
+                <td>[[${headline}]]</td>
+            </tr>
+            <tr>
+                <td>messages_headline</td>
+                <td>[[${messages_headline}]]</td>
+            </tr>
+            <tr>
+                <td>postcode</td>
+                <td>[[${postcode}]]</td>
+            </tr>
+            <tr>
+                <td>messages_postcode</td>
+                <td>[[${messages_postcode}]]</td>
+            </tr>
+        </tbody>
+    </table>
+</main>
 
-
-        <!--/* ################     With arguments      ################ */-->
-        <h3 th:text="#{headline-translation-args}"/>
-        <p th:text="#{email-notice('john.doe@example.com')}"/>
-
-        <!--/* ################     Show default message if id not exists    ################ */-->
-        <h3 th:text="#{headline-translation-code-not-exists}"/>
-        <p th:text="${#messages.msgOrNull('not-exists')} ?: #{default-message}"/>
-
-        <!--/* ################     MessageFormat    ################ */-->
-        <h3 th:text="#{headline-translation-messageformat}"/>
-        <p th:text="#{files-found(23471)}"/>
-        <p th:text="#{files-found(1)}"/>
-
-    </main>
 </body>
 </html>

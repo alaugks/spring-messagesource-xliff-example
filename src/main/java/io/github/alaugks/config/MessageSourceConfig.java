@@ -1,5 +1,6 @@
 package io.github.alaugks.config;
 
+import io.github.alaugks.spring.messagesource.catalog.resources.LocationPattern;
 import java.util.Locale;
 
 import io.github.alaugks.spring.messagesource.xliff.XliffResourceMessageSource;
@@ -14,7 +15,10 @@ public class MessageSourceConfig {
 	@Bean
 	public MessageSource messageSource() {
 		return XliffResourceMessageSource
-				.builder(Locale.forLanguageTag("en"), "translations/*")
+				.builder(
+					Locale.forLanguageTag("en"),
+					new LocationPattern("translations/*")
+				)
 				.build();
 	}
 }

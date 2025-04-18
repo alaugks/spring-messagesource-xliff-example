@@ -1,9 +1,6 @@
-# Example: Spring MessageSource for XLIFF files
+# Example: XLIFF MessageSource for Spring
 
-* alaugks/spring-messagesource-xliff ([GitHub](https://github.com/alaugks/spring-messagesource-xliff))
-* Docker Image: alaugks/spring-boot-xliff-example:
-  2.0.0.3 ([Docker Hub](https://hub.docker.com/r/alaugks/spring-messagesource-xliff-example/tags))
-* [Example Website](https://spring-boot-xliff-example.alaugks.dev)
+This example shows how to use [spring-messagesource-xliff](https://github.com/alaugks/spring-messagesource-xliff).
 
 ## Build and Run Docker Image
 
@@ -23,3 +20,10 @@ docker compose restart
 
 > [!NOTE]  
 > When you restart, the JAR file is rebuilt and the Tomcat is started. This can take a few seconds.
+
+## Related MessageSources and Examples
+
+* [XLIFF MessageSource for Spring](https://github.com/alaugks/spring-messagesource-xliff)
+* [JSON MessageSource for Spring](https://github.com/alaugks/spring-messagesource-json)
+* [Example: JSON MessageSource for Spring](https://github.com/alaugks/spring-messagesource-json-example)
+* [Example: Custom Database Spring MessageSource](https://github.com/alaugks/spring-messagesource-db-example)

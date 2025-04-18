@@ -5,20 +5,8 @@
           target-language="en">
         <body>
             <trans-unit id="title">
-                <source>Example: XLIFF Translation Support for Spring Boot and Spring</source>
-                <target>Example: XLIFF Translation Support for Spring Boot and Spring</target>
-            </trans-unit>
-            <trans-unit id="title-suffix-home">
-                <source>Home</source>
-                <target>Home</target>
-            </trans-unit>
-            <trans-unit id="title-suffix-translations">
-                <source>List of Translations</source>
-                <target>List of Translations</target>
-            </trans-unit>
-            <trans-unit id="meta-description">
-                <source>Example for Spring Boot: XLIFF translation support for Spring Boot and Spring</source>
-                <target>Example for Spring Boot: XLIFF translation support for Spring Boot and Spring</target>
+                <source>Example: XLIFF MessageSource for Spring</source>
+                <target>Example: XLIFF MessageSource for Spring</target>
             </trans-unit>
         </body>
     </file>
