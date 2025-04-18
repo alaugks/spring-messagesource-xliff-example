@@ -21,9 +21,11 @@ docker compose restart
 > [!NOTE]  
 > When you restart, the JAR file is rebuilt and the Tomcat is started. This can take a few seconds.
 
-## Related MessageSources and Examples
 
-* [XLIFF MessageSource for Spring](https://github.com/alaugks/spring-messagesource-xliff)
+## Related MessageSources and Examples  
+  
+* [XLIFF MessageSource for Spring](https://github.com/alaugks/spring-messagesource-xliff)  
 * [JSON MessageSource for Spring](https://github.com/alaugks/spring-messagesource-json)
-* [Example: JSON MessageSource for Spring](https://github.com/alaugks/spring-messagesource-json-example)
+* [Example: XLIFF MessageSource for Spring](https://github.com/alaugks/spring-messagesource-xliff-example)    
+* [Example: JSON MessageSource for Spring](https://github.com/alaugks/spring-messagesource-json-example)  
 * [Example: Custom Database Spring MessageSource](https://github.com/alaugks/spring-messagesource-db-example)
