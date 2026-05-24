@@ -13,7 +13,7 @@ RUN apt-get update \
 
 ### Install maven
 RUN mkdir -p /usr/share/maven \
-	&& curl -fsSL -o /tmp/apache-maven.tar.gz https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz \
+	&& curl -fsSL -o /tmp/apache-maven.tar.gz https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz \
 	&& tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
 	&& rm -f /tmp/apache-maven.tar.gz \
 	&& ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
