@@ -5,13 +5,20 @@ on:
     branches:
       - main
       - dev
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - dev
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   tests:
     name: Docker Build Test
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: "Build Docker Image"
         run: |
@@ -20,7 +27,7 @@ jobs:
       - name: "SmokeTest"
         run: |
           sleep 20
-          if ! curl --output /dev/null --silent --head --fail "http://127.0.0.1:8080/en/home"; then
+          if ! curl --output /dev/null --silent --head --fail "http://127.0.0.1:8080/?lang=en"; then
             echo "SmokeTest failed"
             exit 1
           fi
