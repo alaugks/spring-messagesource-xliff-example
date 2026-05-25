@@ -1,18 +1,12 @@
 FROM ubuntu:22.04
 
-RUN mkdir -p /var/www/app
-
 WORKDIR /var/www/app
 
-COPY ./ /var/www/app
-
-### Install packages
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends curl openjdk-21-jdk openjdk-21-jre \
-  	&& apt-get clean
-
-### Install maven
-RUN mkdir -p /usr/share/maven \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/* \
+	&& mkdir -p /usr/share/maven \
 	&& curl -fsSL -o /tmp/apache-maven.tar.gz https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz \
 	&& tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
 	&& rm -f /tmp/apache-maven.tar.gz \
@@ -20,10 +14,12 @@ RUN mkdir -p /usr/share/maven \
 
 ENV MAVEN_HOME="/usr/share/maven"
 
-RUN export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
+COPY pom.xml ./
+RUN mvn dependency:go-offline -B
 
+COPY . ./
 RUN mvn install
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "/var/www/app/target/application.jar"]
+CMD ["java", "-jar", "/var/www/app/target/app.jar"]
