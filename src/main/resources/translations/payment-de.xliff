@@ -2,12 +2,14 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0"
        srcLang="en" trgLang="de">
     <file id="payment_de">
-        <unit id="payment">
-            <segment id="headline">
+        <unit id="1" name="headline">
+            <segment id="1">
                 <source>Payment</source>
                 <target>Zahlung</target>
             </segment>
-            <segment id="expiry-date">
+        </unit>
+        <unit id="2" name="expiry-date">
+            <segment id="1">
                 <source>Expiry date</source>
                 <target>Ablaufdatum</target>
             </segment>

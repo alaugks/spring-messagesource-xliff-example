@@ -36,7 +36,7 @@ public class IndexController {
 			model.addAttribute("postcode", this.messageSource.getMessage("postcode", null, locale));
 			model.addAttribute("messages_postcode", this.messageSource.getMessage("messages.postcode", null, locale));
 			model.addAttribute("payment_headline", this.messageSource.getMessage("payment.headline", null, locale));
-			model.addAttribute("payment_expiry_date", this.messageSource.getMessage("payment.expiry_date", null, locale));
+			model.addAttribute("payment_expiry_date", this.messageSource.getMessage("payment.expiry-date", null, locale));
 		}
 		catch (NoSuchMessageException ignored) {}
 

@@ -73,39 +73,6 @@
 </nav>
 
 <main>
-    <p>Message Expressions</p>
-
-    <table>
-        <thead>
-        <tr>
-            <th>
-                code
-            </th>
-            <th>
-                value
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>headline</td>
-                <td>[[#{headline}]]</td>
-            </tr>
-            <tr>
-                <td>messages.headline</td>
-                <td>[[#{messages.headline}]]</td>
-            </tr>
-            <tr>
-                <td>postcode</td>
-                <td>[[#{postcode}]]</td>
-            </tr>
-            <tr>
-                <td>messages.postcode</td>
-                <td>[[#{messages.postcode}]]</td>
-            </tr>
-        </tbody>
-    </table>
-
     <p>Variable Expression</p>
 
     <table>
@@ -122,10 +89,10 @@
         <tbody>
             <tr>
                 <td>headline</td>
-                <td>[[${headline}]]</td>
+                <td>[[${headline}]]]</td>
             </tr>
             <tr>
-                <td>messages_headline</td>
+                <td>messages.headline</td>
                 <td>[[${messages_headline}]]</td>
             </tr>
             <tr>
@@ -133,8 +100,57 @@
                 <td>[[${postcode}]]</td>
             </tr>
             <tr>
-                <td>messages_postcode</td>
+                <td>messages.postcode</td>
                 <td>[[${messages_postcode}]]</td>
+            </tr>
+            <tr>
+                <td>payment_headline</td>
+                <td>[[${payment_headline}]]</td>
+            </tr>
+            <tr>
+                <td>payment_expiry_date</td>
+                <td>[[${payment_expiry_date}]]</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Message Expressions</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>
+                code
+            </th>
+            <th>
+                value
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>headline</td>
+                <td>[[#{messages.headline}]]</td>
+            </tr>
+            <tr>
+                <td>messages.headline</td>
+                <td>[[#{messages.headline}]]</td>
+            </tr>
+            <tr>
+                <td>postcode</td>
+                <td>[[#{postcode}]]</td>
+            </tr>
+            <tr>
+                <td>messages.postcode</td>
+                <td>[[#{messages.postcode}]]</td>
+            </tr>
+            <tr>
+                <td>payment.headline</td>
+                <td>[[#{payment.headline}]]</td>
+            </tr>
+            <tr>
+                <td>payment.expiry-date</td>
+                <td>[[#{payment.expiry-date}]]</td>
             </tr>
         </tbody>
     </table>
