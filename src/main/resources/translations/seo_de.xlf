@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2"
        xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en"
+    <file original="seo"
+          datatype="plaintext"
+          source-language="en"
           target-language="de">
         <body>
             <trans-unit id="title">
