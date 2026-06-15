@@ -10,6 +10,10 @@
                 <source>Postcode</source>
                 <target>Zip code</target>
             </trans-unit>
+            <trans-unit id="3" resname="salutation">
+                <source>{salutation, plural, =1 {Ms.} =2 {Mr.} =3 {Mx.} other {Unknown}}</source>
+                <target>{salutation, plural, =1 {Ms.} =2 {Mr.} =3 {Mx.} other {Unknown}}</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

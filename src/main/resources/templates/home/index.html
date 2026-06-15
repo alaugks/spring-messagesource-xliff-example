@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:lang="${#locale}" xmlns:th="http://www.thymeleaf.org">
+<html th:lang="${#locale.toLanguageTag()}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
@@ -104,12 +104,32 @@
                 <td>[[${messages_postcode}]]</td>
             </tr>
             <tr>
+                <td>messages_salutation</td>
+                <td>[[${messages_salutation}]]</td>
+            </tr>
+            <tr>
                 <td>payment_headline</td>
                 <td>[[${payment_headline}]]</td>
             </tr>
             <tr>
                 <td>payment_expiry_date</td>
                 <td>[[${payment_expiry_date}]]</td>
+            </tr>
+            <tr>
+                <td>payment_expiry_info</td>
+                <td>[[${payment_expiry_info}]]</td>
+            </tr>
+            <tr>
+                <td>pgs_file_deleted</td>
+                <td>[[${pgs_file_deleted}]]</td>
+            </tr>
+            <tr>
+                <td>pgs_device_hint</td>
+                <td>[[${pgs_device_hint}]]</td>
+            </tr>
+            <tr>
+                <td>pgs_greeting</td>
+                <td>[[${pgs_greeting}]]</td>
             </tr>
         </tbody>
     </table>
@@ -145,12 +165,32 @@
                 <td>[[#{messages.postcode}]]</td>
             </tr>
             <tr>
+                <td>messages.salutation</td>
+                <td>[[#{messages.salutation(${ {'salutation' : 3} })}]]</td>
+            </tr>
+            <tr>
                 <td>payment.headline</td>
                 <td>[[#{payment.headline}]]</td>
             </tr>
             <tr>
                 <td>payment.expiry-date</td>
                 <td>[[#{payment.expiry-date}]]</td>
+            </tr>
+            <tr>
+                <td>payment.expiry-info</td>
+                <td>[[#{payment.expiry-info(${ {'expiryDate' : expiryDate} })}]]</td>
+            </tr>
+            <tr>
+                <td>pgs.file_deleted</td>
+                <td>[[#{pgs.file_deleted(${ {'count' : 1000} })}]]</td>
+            </tr>
+            <tr>
+                <td>pgs.device_hint</td>
+                <td>[[#{pgs.device_hint(${ {'device' : 'mobile'} })}]]</td>
+            </tr>
+            <tr>
+                <td>pgs.greeting</td>
+                <td>[[#{pgs.greeting(${ {'recipient_gender' : 'feminine'} })}]]</td>
             </tr>
         </tbody>
     </table>

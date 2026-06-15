@@ -1,11 +1,18 @@
 package io.github.alaugks.controller;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.alaugks.config.MessageSourceConfig;
 import io.github.alaugks.config.ThymeleafConfig;
 import io.github.alaugks.config.WebMvcConfigurerConfig;
 import io.github.alaugks.thymeleaf.LanguageMenuPath;
+import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
@@ -14,8 +21,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @WebMvcTest
 @Import(IndexController.class)
@@ -38,34 +43,67 @@ class IndexControllerTest {
 				.andReturn();
 	}
 
-	@Test
-	void test_home_localeEn() throws Exception {
-		MvcResult result = mockMvc
-			.perform(MockMvcRequestBuilders.get("/en/home"))
-			.andExpect(MockMvcResultMatchers.status().isOk())
-			.andReturn();
-
-		assertThat(result.getResponse().getContentAsString().indexOf("Postcode")).isPositive();
+	static Stream<Arguments> translationsProvider() {
+		return Stream.of(
+			Arguments.of(
+				"/en/home",
+				List.of(
+					"Headline",
+					"Postcode",
+					"Payment",
+					"Expiry date",
+					"Mx.",
+					"You deleted 1,000 files.",
+					"Open the app on your phone.",
+					"How is she?",
+					"Your card expires on July 31, 2026."
+				)
+			),
+			Arguments.of(
+				"/en-us/home",
+				List.of(
+					"Headline",
+					"Zip code",
+					"Payment",
+					"Expiration date",
+					"Mx.",
+					"You deleted 1,000 files.",
+					"Open the app on your phone.",
+					"How is she?",
+					"Your card expires on July 31, 2026."
+				)
+			),
+			Arguments.of(
+				"/de/home",
+				List.of(
+					"Überschrift",
+					"Postleitzahl",
+					"Zahlung",
+					"Ablaufdatum",
+					"Divers",
+					"Sie haben 1.000 Dateien gelöscht.",
+					"Öffnen Sie die App auf Ihrem Smartphone.",
+					"Wie geht&#39;s ihr?",
+					"Ihre Karte läuft am 31. Juli 2026 ab."
+				))
+		);
 	}
 
-	@Test
-	void test_home_localeEnUs() throws Exception {
+	@ParameterizedTest(name = "{0} renders \"{1}\" twice")
+	@MethodSource("translationsProvider")
+	void test_home_rendersTranslations(String path, List<String> translations) throws Exception {
 		MvcResult result = mockMvc
-			.perform(MockMvcRequestBuilders.get("/en-us/home"))
+			.perform(MockMvcRequestBuilders.get(path))
 			.andExpect(MockMvcResultMatchers.status().isOk())
 			.andReturn();
 
-		assertThat(result.getResponse().getContentAsString().indexOf("Zip code")).isPositive();
-	}
+		String content = result.getResponse().getContentAsString();
 
-	@Test
-	void test_home_localeDe() throws Exception {
-		MvcResult result = mockMvc
-			.perform(MockMvcRequestBuilders.get("/de/home"))
-			.andExpect(MockMvcResultMatchers.status().isOk())
-			.andReturn();
-
-		assertThat(result.getResponse().getContentAsString().indexOf("Postleitzahl")).isPositive();
+		for (String translation : translations) {
+			long count = Pattern.compile(Pattern.quote(translation)).matcher(content).results().count();
+			assertThat(count)
+				.as("translation = %s, expected >= 2", translation, count)
+				.isGreaterThanOrEqualTo(2);
+		}
 	}
 }
-

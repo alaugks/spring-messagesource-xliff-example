@@ -1,9 +1,7 @@
 package io.github.alaugks.thymeleaf;
 
-import java.util.Arrays;
-
 import jakarta.servlet.http.HttpServletRequest;
-
+import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

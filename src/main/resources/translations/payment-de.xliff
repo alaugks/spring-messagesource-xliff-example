@@ -14,5 +14,11 @@
                 <target>Ablaufdatum</target>
             </segment>
         </unit>
+        <unit id="3" name="expiry-info">
+            <segment id="1">
+                <source>Your card expires on {expiryDate, date, long}.</source>
+                <target>Ihre Karte läuft am {expiryDate, date, long} ab.</target>
+            </segment>
+        </unit>
     </file>
 </xliff>

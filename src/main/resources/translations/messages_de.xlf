@@ -14,6 +14,10 @@
                 <source>Postcode</source>
                 <target>Postleitzahl</target>
             </trans-unit>
+            <trans-unit id="3" resname="salutation">
+                <source>{salutation, plural, =1 {Ms.} =2 {Mr.} =3 {Mx.} other {Unknown}}</source>
+                <target>{salutation, plural, =1 {Frau} =2 {Herr} =3 {Divers} other {Unbekannt}}</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
