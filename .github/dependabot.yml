@@ -14,7 +14,8 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
-      - dependency-name: "*"
+      - dependency-name: "org.springframework*:*"
         update-types:
           - "version-update:semver-major"
           - "version-update:semver-minor"
+      - dependency-name: "io.github.alaugks:spring-messagesource-catalog"
