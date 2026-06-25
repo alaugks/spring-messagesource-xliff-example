@@ -9,16 +9,10 @@ import org.springframework.stereotype.Service;
 public class LanguageMenuPath {
 
     private final HttpServletRequest request;
-    private static LanguageMenuPath instance;
 
     @Autowired
     public LanguageMenuPath(HttpServletRequest request) {
         this.request = request;
-        instance = this; //NOSONAR
-    }
-
-    public static LanguageMenuPath getInstance() {
-        return instance;
     }
 
     public String get(String locale) {

@@ -1,7 +1,7 @@
 package io.github.alaugks.config;
 
 import io.github.alaugks.thymeleaf.LanguageMenuPath;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.spring6.SpringTemplateEngine;
@@ -11,10 +11,13 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 public class ThymeleafConfig {
 
 	@Bean
-    public ThymeleafViewResolver thymeleafViewResolver(@Autowired SpringTemplateEngine templateEngine) {
+    public ThymeleafViewResolver thymeleafViewResolver(
+        SpringTemplateEngine templateEngine,
+        HttpServletRequest request
+    ) {
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
         thymeleafViewResolver.setTemplateEngine(templateEngine);
-        thymeleafViewResolver.addStaticVariable("languageMenuPath", LanguageMenuPath.getInstance());
+        thymeleafViewResolver.addStaticVariable("languageMenuPath", new LanguageMenuPath(request));
         return thymeleafViewResolver;
     }
 }
