@@ -1,6 +1,6 @@
 # Example: XLIFF MessageSource for Spring
 
-This example shows how to use [spring-messagesource-xliff](https://github.com/alaugks/spring-messagesource-xliff).
+A complete Spring Boot example using the [spring-messagesource-xliff](https://github.com/alaugks/spring-messagesource-xliff) dependency, demonstrating i18n with XLIFF 1.2 and XLIFF 2.x translation files (including the PGS module).
 
 ## Build and Run Docker Image
 
