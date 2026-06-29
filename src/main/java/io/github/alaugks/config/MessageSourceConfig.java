@@ -18,19 +18,19 @@ public class MessageSourceConfig {
 				Locale.forLanguageTag("en"),
 				new LocationPattern("translations/*")
 			)
-			.enableICU4j(); // Enable for XLIFF 2.2
+			.enableICU4j(); // Enable for XLIFF 2.2 for PGS Module
 	}
 
 	@Bean(name = "messageSource")
-	@Profile("dev")
-	public MessageSource messageSourceDev() {
+	@Profile({"dev", "test"})
+	public MessageSource messageSourceWithSchemaValidation() {
 		return this.createXliffResourceMessageSourceBuilder()
 			.validateSchema(true)
 			.build();
 	}
 
 	@Bean
-	@Profile("!dev")
+	@Profile("!dev & !test")
 	public MessageSource messageSource() {
 		return this.createXliffResourceMessageSourceBuilder()
 			.build();
