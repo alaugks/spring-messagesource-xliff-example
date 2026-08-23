@@ -1,6 +1,5 @@
 package io.github.alaugks.config;
 
-import io.github.alaugks.spring.messagesource.catalog.resources.LocationPattern;
 import io.github.alaugks.spring.messagesource.xliff.XliffResourceMessageSource;
 import io.github.alaugks.spring.messagesource.xliff.XliffResourceMessageSource.Builder;
 import java.util.Locale;
@@ -16,7 +15,7 @@ public class MessageSourceConfig {
 		return XliffResourceMessageSource
 			.builder(
 				Locale.forLanguageTag("en"),
-				new LocationPattern("translations/*")
+				"translations/*"
 			)
 			.enableICU4j(); // Enable for XLIFF 2.2 for PGS Module
 	}
