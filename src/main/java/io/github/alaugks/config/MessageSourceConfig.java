@@ -11,7 +11,8 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class MessageSourceConfig {
 
-	public Builder createXliffResourceMessageSourceBuilder() {
+	@Bean
+	public Builder xliffResourceMessageSourceBilder() {
 		return XliffResourceMessageSource
 			.builder(
 				Locale.forLanguageTag("en"),
@@ -20,18 +21,24 @@ public class MessageSourceConfig {
 			.enableICU4j(); // Enable for XLIFF 2.2 for PGS Module
 	}
 
-	@Bean(name = "messageSource")
-	@Profile({"dev", "test"})
-	public MessageSource messageSourceWithSchemaValidation() {
-		return this.createXliffResourceMessageSourceBuilder()
-			.validateSchema(true)
+	/**
+	 * Not DEV and not TEST without schema validation
+	 */
+	@Bean
+	@Profile("!dev & !test")
+	public MessageSource messageSource(Builder xliffResourceMessageSourceBilder) {
+		return xliffResourceMessageSourceBilder
 			.build();
 	}
 
-	@Bean
-	@Profile("!dev & !test")
-	public MessageSource messageSource() {
-		return this.createXliffResourceMessageSourceBuilder()
+	/**
+	 * DEV or not TEST with schema validation
+	 */
+	@Bean(name = "messageSource")
+	@Profile({"dev", "test"})
+	public MessageSource messageSourceWithSchemaValidation(Builder xliffResourceMessageSourceBilder) {
+		return xliffResourceMessageSourceBilder
+			.validateSchema(true)
 			.build();
 	}
 }

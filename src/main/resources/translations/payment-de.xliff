@@ -2,19 +2,19 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0"
        srcLang="en" trgLang="de">
     <file id="payment_de">
-        <unit id="1" name="headline">
+        <unit id="1" name="payment.headline">
             <segment id="1">
                 <source>Payment</source>
                 <target>Zahlung</target>
             </segment>
         </unit>
-        <unit id="2" name="expiry-date">
+        <unit id="2" name="payment.expiry-date">
             <segment id="1">
                 <source>Expiry date</source>
                 <target>Ablaufdatum</target>
             </segment>
         </unit>
-        <unit id="3" name="expiry-info">
+        <unit id="3" name="payment.expiry-info">
             <segment id="1">
                 <source>Your card expires on {expiryDate, date, long}.</source>
                 <target>Ihre Karte läuft am {expiryDate, date, long} ab.</target>

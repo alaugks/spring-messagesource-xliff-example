@@ -6,7 +6,7 @@
           source-language="en"
           target-language="en">
         <body>
-            <trans-unit id="title">
+            <trans-unit id="seo.title">
                 <source>Example: XLIFF MessageSource for Spring</source>
                 <target>Example: XLIFF MessageSource for Spring</target>
             </trans-unit>

@@ -2,13 +2,13 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0"
        srcLang="en" trgLang="en-US">
     <file id="payment_en-US">
-        <unit id="2" name="expiry-date">
+        <unit id="2" name="payment.expiry-date">
             <segment id="1">
                 <source>Expiry date</source>
                 <target>Expiration date</target>
             </segment>
         </unit>
-        <unit id="3" name="expiry-info">
+        <unit id="3" name="payment.expiry-info">
             <segment id="1">
                 <source>Your card expires on {expiryDate, date, long}.</source>
                 <target>Your card expires on {expiryDate, date, long}.</target>

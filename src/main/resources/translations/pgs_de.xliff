@@ -3,7 +3,7 @@
     xmlns="urn:oasis:names:tc:xliff:document:2.2"
     xmlns:pgs="urn:oasis:names:tc:xliff:pgs:1.0">
     <file id="f1">
-        <unit id="tu1" name="file_deleted" pgs:switch="plural:count">
+        <unit id="tu1" name="pgs.file_deleted" pgs:switch="plural:count">
             <segment pgs:case="0">
                 <source>You deleted no files.</source>
                 <target>Sie haben keine Dateien gelöscht.</target>
@@ -17,7 +17,7 @@
                 <target>Sie haben <ph id="1" disp="count"/> Dateien gelöscht.</target>
             </segment>
         </unit>
-        <unit id="tu2" name="greeting" pgs:switch="gender:recipient_gender">
+        <unit id="tu2" name="pgs.greeting" pgs:switch="gender:recipient_gender">
             <segment pgs:case="feminine">
                 <source>How is she?</source>
                 <target>Wie geht's ihr?</target>
@@ -31,7 +31,7 @@
                 <target>Wie geht's ihnen?</target>
             </segment>
         </unit>
-        <unit id="tu3" name="device_hint" pgs:switch="select:device">
+        <unit id="tu3" name="pgs.device_hint" pgs:switch="select:device">
             <segment pgs:case="mobile">
                 <source>Open the app on your phone.</source>
                 <target>Öffnen Sie die App auf Ihrem Smartphone.</target>
