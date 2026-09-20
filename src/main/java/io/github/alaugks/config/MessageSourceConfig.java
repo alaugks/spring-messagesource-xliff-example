@@ -22,7 +22,7 @@ public class MessageSourceConfig {
 	}
 
 	/**
-	 * Not DEV and not TEST without schema validation
+	 * Not DEV and TEST without schema validation
 	 */
 	@Bean
 	@Profile("!dev & !test")
@@ -38,7 +38,7 @@ public class MessageSourceConfig {
 	@Profile({"dev", "test"})
 	public MessageSource messageSourceWithSchemaValidation(Builder xliffResourceMessageSourceBilder) {
 		return xliffResourceMessageSourceBilder
-			.validateSchema(true)
+			.enableSchemaValidation()
 			.build();
 	}
 }
