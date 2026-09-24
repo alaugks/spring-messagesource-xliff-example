@@ -32,7 +32,7 @@ public class MessageSourceConfig {
 	}
 
 	/**
-	 * DEV or not TEST with schema validation
+	 * DEV or TEST with schema validation
 	 */
 	@Bean(name = "messageSource")
 	@Profile({"dev", "test"})
