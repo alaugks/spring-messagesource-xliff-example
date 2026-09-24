@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0"
+    srcLang="en" trgLang="en">
+    <file id="1">
+        <unit id="1" name="teaser.click-here">
+            <originalData>
+                <data id="d1">&lt;a href="{0}"&gt;</data>
+                <data id="d2">&lt;/a&gt;</data>
+            </originalData>
+            <segment>
+                <source>Click <pc id="1" dataRefStart="d1" dataRefEnd="d2">here</pc></source>
+            </segment>
+        </unit>
+    </file>
+</xliff>

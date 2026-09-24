@@ -71,6 +71,12 @@ public class IndexController {
 			locale
 		));
 
+		model.addAttribute("teaser_click_here", this.getMessage(
+			"teaser.click-here",
+			new Object[]{"https://github.com/alaugks/spring-messagesource-xliff"},
+			locale
+		));
+
 		return "home/index";
 	}
 
