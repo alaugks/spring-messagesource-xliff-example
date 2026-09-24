@@ -56,7 +56,8 @@ class IndexControllerTest {
 					"You deleted 1,000 files.",
 					"Open the app on your phone.",
 					"How is she?",
-					"Your card expires on July 31, 2026."
+					"Your card expires on July 31, 2026.",
+					"Click <a href=\"https://github.com/alaugks/spring-messagesource-xliff\">here</a>"
 				)
 			),
 			Arguments.of(
@@ -70,7 +71,8 @@ class IndexControllerTest {
 					"You deleted 1,000 files.",
 					"Open the app on your phone.",
 					"How is she?",
-					"Your card expires on July 31, 2026."
+					"Your card expires on July 31, 2026.",
+					"Click <a href=\"https://github.com/alaugks/spring-messagesource-xliff\">here</a>"
 				)
 			),
 			Arguments.of(
@@ -84,7 +86,8 @@ class IndexControllerTest {
 					"Sie haben 1.000 Dateien gelöscht.",
 					"Öffnen Sie die App auf Ihrem Smartphone.",
 					"Wie geht&#39;s ihr?",
-					"Ihre Karte läuft am 31. Juli 2026 ab."
+					"Ihre Karte läuft am 31. Juli 2026 ab.",
+					"Klicke <a href=\"https://github.com/alaugks/spring-messagesource-xliff\">hier</a>"
 				))
 		);
 	}
