@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - dev
+      - "snapshot/*"
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
