@@ -20,5 +20,11 @@
                 <target>Ihre Karte läuft am {expiryDate, date, long} ab.</target>
             </segment>
         </unit>
+        <unit id="4" name="payment.paymnet-data">
+            <segment id="1">
+                <source>Your <pc id="1" equivStart="&lt;a href=&quot;/{0}{1}&quot;&gt;" equivEnd="&lt;/a&gt;">payment data</pc></source>
+                <target>Deine <pc id="1" equivStart="&lt;a href=&quot;/{0}{1}&quot;&gt;" equivEnd="&lt;/a&gt;">Bezahldaten</pc></target>
+            </segment>
+        </unit>
     </file>
 </xliff>

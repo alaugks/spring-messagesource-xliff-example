@@ -112,6 +112,10 @@
                 <td>[[${payment_expiry_info}]]</td>
             </tr>
             <tr>
+                <td>payment_paymnet_data</td>
+                <td>[(${payment_paymnet_data})]</td>
+            </tr>
+            <tr>
                 <td>pgs_file_deleted</td>
                 <td>[[${pgs_file_deleted}]]</td>
             </tr>
@@ -163,6 +167,10 @@
             <tr>
                 <td>payment.expiry-info</td>
                 <td>[[#{payment.expiry-info(${ {'expiryDate' : expiryDate} })}]]</td>
+            </tr>
+            <tr>
+                <td>payment.paymnet-data</td>
+                <td>[(#{payment.paymnet-data(${#locale.toLanguageTag()}, '/payment')})]</td>
             </tr>
             <tr>
                 <td>pgs.file_deleted</td>

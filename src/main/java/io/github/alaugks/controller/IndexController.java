@@ -44,6 +44,11 @@ public class IndexController {
 		model.addAttribute("postcode", this.getMessage("postcode", null, locale));
 		model.addAttribute("payment_headline", this.getMessage("payment.headline", null, locale));
 		model.addAttribute("payment_expiry_date", this.getMessage("payment.expiry-date", null, locale));
+		model.addAttribute("payment_paymnet_data", this.getMessage(
+			"payment.paymnet-data",
+			new Object[]{locale.toLanguageTag(), "/payment"},
+			locale
+		));
 		model.addAttribute("expiryDate", expiryDate);
 		model.addAttribute("payment_expiry_info", this.getMessage(
 			"payment.expiry-info",
