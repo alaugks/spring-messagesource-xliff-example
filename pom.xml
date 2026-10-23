@@ -4,13 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.1.1</version>
+        <groupId>io.github.alaugks</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0.0</version>
         <relativePath/>
     </parent>
 
-    <groupId>io.github.alaugks</groupId>
     <artifactId>spring-messagesource-xliff-example</artifactId>
     <version>4.0.0</version>
     <packaging>jar</packaging>
@@ -21,7 +20,20 @@
 
     <properties>
         <java.version>21</java.version>
+        <spring-boot.version>4.1.2</spring-boot.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -64,153 +76,13 @@
         </repository>
     </repositories>
 
-    <profiles>
-        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-        <!--                            TEST COVERAGE                               -->
-        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-        <!--  mvn test -P test-coverage -->
-        <profile>
-            <id>test-coverage</id><build>
-            <plugins>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.15</version>
-                    <executions>
-                        <execution>
-                            <id>before-unit-test-execution</id>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                            <configuration>
-                                <destFile>${project.build.directory}/jacoco-output/jacoco-unit-tests.exec</destFile>
-                                <propertyName>surefire.jacoco.args</propertyName>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>after-unit-test-execution</id>
-                            <phase>test</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                            <configuration>
-                                <dataFile>${project.build.directory}/jacoco-output/jacoco-unit-tests.exec</dataFile>
-                                <outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>before-integration-test-execution</id>
-                            <phase>pre-integration-test</phase>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                            <configuration>
-                                <destFile>${project.build.directory}/jacoco-output/jacoco-integration-tests.exec</destFile>
-                                <propertyName>failsafe.jacoco.args</propertyName>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>after-integration-test-execution</id>
-                            <phase>post-integration-test</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                            <configuration>
-                                <dataFile>${project.build.directory}/jacoco-output/jacoco-integration-tests.exec</dataFile>
-                                <outputDirectory>${project.reporting.outputDirectory}/jacoco-integration-test-coverage-report</outputDirectory>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>merge-unit-and-integration</id>
-                            <phase>post-integration-test</phase>
-                            <goals>
-                                <goal>merge</goal>
-                            </goals>
-                            <configuration>
-                                <fileSets>
-                                    <fileSet>
-                                        <directory>${project.build.directory}/jacoco-output/</directory>
-                                        <includes>
-                                            <include>*.exec</include>
-                                        </includes>
-                                    </fileSet>
-                                </fileSets>
-                                <destFile>${project.build.directory}/jacoco-output/merged.exec</destFile>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>create-merged-report</id>
-                            <phase>post-integration-test</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                            <configuration>
-                                <dataFile>${project.build.directory}/jacoco-output/merged.exec</dataFile>
-                                <outputDirectory>${project.reporting.outputDirectory}/jacoco-merged-test-coverage-report</outputDirectory>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>check</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                            <configuration>
-                                <rules>
-                                    <rule>
-                                        <element>CLASS</element>
-                                        <excludes>
-                                            <exclude>*Test</exclude>
-                                            <exclude>*IT</exclude>
-                                        </excludes>
-                                        <limits>
-                                            <limit>
-                                                <counter>LINE</counter>
-                                                <value>COVEREDRATIO</value>
-                                                <minimum>100%</minimum>
-                                            </limit>
-                                        </limits>
-                                    </rule>
-                                </rules>
-                                <dataFile>${project.build.directory}/jacoco-output/merged.exec</dataFile>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <configuration>
-                        <argLine>${surefire.jacoco.args}</argLine>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <configuration>
-                        <argLine>${failsafe.jacoco.args}</argLine>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>integration-test</goal>
-                                <goal>verify</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </build>
-        </profile>
-
-    </profiles>
-
     <build>
         <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>io.github.alaugks.XliffMessageSourceExampleApplication</mainClass>
                     <layout>JAR</layout>
