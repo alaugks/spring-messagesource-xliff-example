@@ -52,7 +52,7 @@
         <dependency>
             <groupId>io.github.alaugks</groupId>
             <artifactId>spring-requesturi-locale-interceptor</artifactId>
-            <version>0.3.1</version>
+            <version>1.0.0</version>
         </dependency>
 
         <!-- Test -->
